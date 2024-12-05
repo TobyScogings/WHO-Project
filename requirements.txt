@@ -180,7 +180,7 @@ pandas
 # pyqt=5.15.10=py312h313beb8_0
 # pyqt5-sip=12.13.0=py312h80987f9_0
 # pysocks=1.7.1=py312hca03da5_0
-python
+# python
 # python-dateutil=2.9.0post0=py312hca03da5_2
 # python-fastjsonschema=2.16.2=py312hca03da5_0
 # python-json-logger=2.0.7=py312hca03da5_0
@@ -213,7 +213,7 @@ scikit-learn==1.5.1
 # sqlite=3.45.3=h80987f9_0
 # stack_data=0.2.0=pyhd3eb1b0_0
 statsmodels
-streamlit
+# streamlit
 # tenacity=9.0.0=py312hca03da5_0
 # terminado=0.17.1=py312hca03da5_0
 # threadpoolctl=3.5.0=py312h989b03a_0
