@@ -42,6 +42,14 @@ if not agree:
         diphtheria = st.number_input("diphtheria immunization (%)", min_value=0, max_value=100)
         gdp = st.number_input("GDP", min_value=0)
         submit2 = st.form_submit_button("Submit info and predict life expectancy")
+    
+    if submit2:
+        # placeholder for feature engineering, data transformation using the full model
+        
+        # placeholder for prediction using the full model
+        st.subheader("Result:")
+        predict2 = "holder for sensitive model"
+        st.write(f"Your life expectancy is {predict2}.")
 
 if agree:
     with st.form("model_1"):
@@ -70,7 +78,14 @@ if agree:
         gdp = st.number_input("GDP", min_value=0)
 
         submit1 = st.form_submit_button("Submit info and predict life expectancy")
+    
+    if submit1:
+        # placeholder for feature engineering, data transformation using the full model
 
+        # placeholder for prediction using the full model
+        st.subheader("Result:")
+        predict1 = "holder for full model"
+        st.write(f"Your life expectancy is {predict1}.")
 
 def predict(features, dv, model):
     '''
@@ -81,58 +96,7 @@ def predict(features, dv, model):
     y_pred = model.predict_proba(transformed)[:,1] >= 0.5
     return y_pred
     
-# if submit:
-#     patient_info = {"Age": age,
-#                     "Sex": sex,
-#                     "ChestPainType": chestPainType,
-#                     "RestingBP": restingBP,
-#                     "Cholesterol": cholesterol,
-#                     "FastingBS": fastingBS,
-#                     "RestingECG": restingECG,
-#                     "MaxHR": maxHR,
-#                     "ExerciseAngina": exerciseAngina,
-#                     "Oldpeak": oldpeak,
-#                     "ST_Slope": st_slope,
-#                     "Cholesterol_Level": get_cholesterol_level(cholesterol)
-#                     }
-    # st.write("You submitted:")
-    # st.write(patient_info.items())
 
-    # hasHeartDisease = predict(patient_info, dv, model)
-    # st.subheader("Prediction Results:")
-    # if hasHeartDisease:
-    #     st.write("Potentially at risk of heart disease. Follow-up examination recommended.")
-    # else:
-    #     st.write("Negative.")
-# df = pd.read_csv("C:\\Users\\Toby\\Documents\\Digital Futures\\Projects\\WHO Project\\Life Expectancy Data.csv")
-# df.shape
-
-
-# # <h4>Train-Test Split</h4>
-
-# # In[ ]:
-
-
-# feature_cols = list(df.columns)
-# feature_cols.remove('Life_expectancy')
-
-# X = df[feature_cols]
-# y = df['Life_expectancy']
-
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 10)
-
-
-# # <h2>Interactive Model Selection and Outputs</h2>
-
-# # In[183]:
-
-
-# model_selection()
-
-
-# # <h4>Behind the Scenes Workings</h4>
-
-# # In[176]:
 
 
 # def model_selection():
