@@ -53,9 +53,6 @@ def transform_inputs(scaler, inputs):
     return transformed
 
 # Coefficients retrieved from Toby's "Interactive Function.ipynb" > modelling()
-# def predict_full_model(year, u5_deaths, adult_mortality, alcohol_consumption, hepatitis_b,
-#             bmi, polio, diphtheria, hiv, thinness_10_19, 
-#             schooling, economy_status, region, gdp):
 def predict_full_model(inputs):
     full_coef = {'const': 68.868, 'Year': 0.1834, 'Under_five_deaths': -3.4189, 
                    'Adult_mortality': -5.3247, 'Alcohol_consumption': -0.089, 
@@ -77,8 +74,19 @@ def predict_full_model(inputs):
              (inputs["log_GDP"] * full_coef["log_GDP"]) + full_coef[f"Region_{region}"]             
     return result
 
-def predict_censored_model():
-    minimal_coef = {}
+# Coefficients retrieved from Vivien's "eda_modeling_vs.ipynb" > Modelling (minimalistic) > Seventh model
+def predict_censored_model(inputs):
+    minimal_coef = {'const': 68.8680,
+                    'Year':	0.3297,
+                    'Alcohol_consumption': 0.7905,
+                    'Adult_mortality': -7.1659,
+                    'log_GDP': 2.1598,
+                    }
+    result = minimal_coef['const'] + (inputs["Year"] * minimal_coef['Year']) + \
+             (inputs['Adult_mortality'] * minimal_coef['Adult_mortality']) + \
+             (inputs['Alcohol_consumption'] * minimal_coef['Alcohol_consumption']) + \
+             (inputs["log_GDP"] * minimal_coef["log_GDP"])
+    return result
 
 #------------------------------------------------------#
 #       PRELOAD FITTED STANDARDSCALER
@@ -92,8 +100,11 @@ print(scaler_cols)
 #------------------------------------------------------#
 #                   STREAMLIT FRONTEND
 #------------------------------------------------------#
-st.title("Life Expectancy prediction app")
-st.markdown("")
+st.image("app_header_image.png", 
+         caption="World Health Organisation logo",
+         use_container_width=True)
+# st.title("Life Expectancy prediction app")
+# st.markdown("")
 
 help = pd.read_csv(metapath)
 with st.expander("See here for a list of field descriptions"):
@@ -107,39 +118,52 @@ st.subheader("Enter your particulars below")
 if not agree:
     with st.form("model_2"):
         year = st.number_input("Year", min_value=2000, max_value=3000)
-        adult_mortality = st.number_input("adult mortality rate", min_value=0)
-        alcohol_consumption = st.number_input("alcohol consumption", min_value=0)
-        hepatitis_b = st.number_input("hepatitis B immunization (%)", min_value=0, max_value=100)
-        polio = st.number_input("polio immunization (%)", min_value=0, max_value=100)
-        diphtheria = st.number_input("diphtheria immunization (%)", min_value=0, max_value=100)
+        adult_mortality = st.number_input("Adult Mortality Rate", min_value=0)
+        alcohol_consumption = st.number_input("Alcohol Consumption", min_value=0)
+        # hepatitis_b = st.number_input("hepatitis B immunization (%)", min_value=0, max_value=100)
+        # polio = st.number_input("polio immunization (%)", min_value=0, max_value=100)
+        # diphtheria = st.number_input("diphtheria immunization (%)", min_value=0, max_value=100)
         gdp = st.number_input("GDP", min_value=0)
         submit2 = st.form_submit_button("Submit info and predict life expectancy")
     
     if submit2:
-        # placeholder for feature engineering, data transformation using the sensitive model
-        
-        # placeholder for prediction using the censored model
-        predict2 = predict_censored_model()
+        # feature engineering, data transformation using the censored model
+        gdp = np.log(gdp)
+        inputs = {'Year':year, 'Under_five_deaths': 0, 'Adult_mortality':adult_mortality, 
+                 'Alcohol_consumption': alcohol_consumption, 'Hepatitis_B': 0, 
+                 'BMI': 0, 'Polio': 0, 'Diphtheria': 0, 'Incidents_HIV': 0,
+                'Thinness_ten_nineteen_years': 0,
+                'Schooling': 0, 'Economy_status_Developed': 0,
+                'Region_Asia':0, 'Region_Central America and Caribbean':0,
+                'Region_European Union':0, 'Region_Middle East':0, 'Region_North America':0,
+                'Region_Oceania':0, 'Region_Rest of Europe':0, 'Region_South America':0,
+                'log_GDP': gdp
+                }
+        transformed_inputs = transform_inputs(scaler, inputs)
+        print(transformed_inputs)
+
+        # prediction using the censored model
+        predict2 = predict_censored_model(transformed_inputs)
         st.subheader("Result:")
-        st.write(f"Your life expectancy is {predict2}.")
+        st.write(f"Your life expectancy is {predict2 :.1f} years.")
 
 # Uses full model to include sensitive data
 if agree:
     with st.form("model_1"):
         year = st.number_input("Year", min_value=2000, max_value=3000)
 
-        u5_deaths = st.number_input("U5 Deaths per 1000", min_value=0, max_value=1000)
-        adult_mortality = st.number_input("adult mortality rate", min_value=0)
-        alcohol_consumption = st.number_input("alcohol consumption", min_value=0)
-        hepatitis_b = st.number_input("hepatitis B immunization (%)", min_value=0, max_value=100)
+        u5_deaths = st.number_input("Under 5 Deaths per 1000", min_value=0, max_value=1000)
+        adult_mortality = st.number_input("Adult Mortality Rate", min_value=0)
+        alcohol_consumption = st.number_input("Alcohol Consumption", min_value=0)
+        hepatitis_b = st.number_input("Hepatitis B Immunization (%)", min_value=0, max_value=100)
         bmi = st.number_input("BMI", min_value=0, max_value=1000)
-        polio = st.number_input("polio immunization (%)", min_value=0, max_value=100)
-        diphtheria = st.number_input("diphtheria immunization (%)", min_value=0, max_value=100)
+        polio = st.number_input("Polio Immunization (%)", min_value=0, max_value=100)
+        diphtheria = st.number_input("Diphtheria Immunization (%)", min_value=0, max_value=100)
         hiv = st.number_input("HIV per 1000", min_value=0, max_value=1000)
-        thinness_10_19 = st.number_input("thinness between 10-19", min_value=0, max_value=100)
-        schooling = st.number_input("schooling years", min_value=0, max_value=100)
+        thinness_10_19 = st.number_input("Thinness between 10-19 years old (%)", min_value=0, max_value=100)
+        schooling = st.number_input("Schooling Years", min_value=0, max_value=20)
         economy_list = {0: "Developing", 1: "Developed"}
-        economy_status = st.radio("economy status", options=economy_list.keys(), format_func=lambda x: economy_list.get(x), 
+        economy_status = st.radio("Economy Status", options=economy_list.keys(), format_func=lambda x: economy_list.get(x), 
                     index=None)
         region = st.selectbox(
                     "Region",
@@ -168,11 +192,8 @@ if agree:
         inputs[f"Region_{region}"] = 1
         transformed_inputs = transform_inputs(scaler, inputs)
         print(transformed_inputs)
+
         # prediction using the full model
-        # predict1 = predict_full_model(year, u5_deaths, adult_mortality, alcohol_consumption, hepatitis_b,
-        #                               bmi, polio, diphtheria, hiv, thinness_10_19, 
-        #                               schooling, economy_status, region, gdp
-        #                               )
         predict1 = predict_full_model(transformed_inputs)
         st.subheader("Result:")
         st.write(f"Your life expectancy is {predict1 :.1f} years.")
