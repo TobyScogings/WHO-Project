@@ -9,7 +9,7 @@ Using the WHO Life Expectancy data, produce a function which takes in relevant p
 * The **minimalistic model** should produce an **RMSE lower than 2.3** compared to the competitor team's baseline.
 
 ## Dataset
-See `Life Expectancy Data.csv`.
+See `Life Expectancy Data.csv` and metadata info at `WHO Dataset - MetaData.ipynb`.
 
 ## Streamlit app
 Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/) a go!
@@ -21,7 +21,7 @@ Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/)
 * `seaborn`.
 * `streamlit`.
 * `scikit-learn`.
-* `statsmodels`
+* `statsmodels`.
 
 
 ## Methodology
@@ -33,10 +33,12 @@ Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/)
 
 ## Outcome
 We managed to achieve our goals and produced the following final models:
-* Full model RMSE on training data: `1.2`, R-Squared: `0.984`.
-* Minimalistic model RMSE on training data: `2.18`, R-Squared: `0.946`. 
+| Model | RMSE of training data | R-Squared |
+|-------|------|-----------|
+| Full model | 1.2 | 0.984 |
+| Minimalistic model | 2.18 | 0.946 | 
 
-Please refer to [supermodellers project 1.ipynb](https://github.com/viviensiu/supermodellers/blob/main/Supermodellers%20Project%201.ipynb) for details on EDA, feature-engineering, and training the full and minimalistic models.
+Please refer to [Supermodellers Project 1.ipynb](https://github.com/viviensiu/supermodellers/blob/main/Supermodellers%20Project%201.ipynb) for details on EDA, feature-engineering, and training the full and minimalistic models.
 
 ## To reproduce the Streamlit app locally
 * Packages required (extra installation needed):
