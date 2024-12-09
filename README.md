@@ -33,8 +33,10 @@ Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/)
 
 ## Outcome
 We managed to achieve our goals and produced the following final models:
-* **Full model** RMSE on training data: `1.2`, R-Squared: `0.984`.
-* **Minimalistic model** RMSE on training data: `2.18`, R-Squared: `0.946`. 
+| Model | RMSE of training data | R-Squared |
+|-------|------|-----------|
+| Full model | 1.2 | 0.984 |
+| Minimalistic model | 2.18 | 0.946 | 
 
 Please refer to [Supermodellers Project 1.ipynb](https://github.com/viviensiu/supermodellers/blob/main/Supermodellers%20Project%201.ipynb) for details on EDA, feature-engineering, and training the full and minimalistic models.
 
