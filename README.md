@@ -11,9 +11,6 @@ Using the WHO Life Expectancy data, produce a function which takes in relevant p
 ## Dataset
 See `Life Expectancy Data.csv` and metadata info at `WHO Dataset - MetaData.ipynb`.
 
-## Streamlit app
-Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/) a go!
-
 ## Tech-stack:
 * `python`.
 * `numpy`.
@@ -22,7 +19,6 @@ Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/)
 * `streamlit`.
 * `scikit-learn`.
 * `statsmodels`.
-
 
 ## Methodology
 * Team experiments on EDA, feature-engineering, and finding the optimal full and minimalistic models.
@@ -43,6 +39,9 @@ We managed to achieve our goals and produced the following final models:
 > * Cond. No: Indication of multi-collinearity in the features. The lower the better.
 
 Please refer to [Supermodellers Project 1.ipynb](https://github.com/viviensiu/supermodellers/blob/main/Supermodellers%20Project%201.ipynb) for details on EDA, feature-engineering, and training the full and minimalistic models.
+
+## Streamlit app
+Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/) a go!
 
 ## To reproduce the Streamlit app locally
 * Packages required (extra installation needed):
