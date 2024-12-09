@@ -33,10 +33,14 @@ Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/)
 
 ## Outcome
 We managed to achieve our goals and produced the following final models:
-| Model | RMSE of training data | R-Squared |
-|-------|------|-----------|
-| Full model | 1.2 | 0.984 |
-| Minimalistic model | 2.18 | 0.946 | 
+| Model | RMSE of training data | R-Squared | Cond.No |
+|-------|------|-----------| -------|
+| Full model | 1.2 | 0.984 | 12.7 |
+| Minimalistic model | 2.24 | 0.946 | 2.94 |
+> Note:
+> * RMSE: Root Mean Squared Error, measures how far off the predictions are from actual life expectancy on average. The lower the better.
+> * R-Squared:  Proportion of variance in life expectancy that can be explained by the features, the closer to 1 the better.
+> * Cond. No: Indication of multi-collinearity in the features. The lower the better.
 
 Please refer to [Supermodellers Project 1.ipynb](https://github.com/viviensiu/supermodellers/blob/main/Supermodellers%20Project%201.ipynb) for details on EDA, feature-engineering, and training the full and minimalistic models.
 
