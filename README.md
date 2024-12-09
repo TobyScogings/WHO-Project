@@ -8,10 +8,11 @@ Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/)
 * Packages required (extra installation needed):
   * `streamlit`.
   * `scikit-learn`. 
-* Files required:
+* Files required within same folder (e.g. "supermodellers" folder):
   * `interactive_function.py`: Python script that makes up the Streamlit application.
   * `requirements.txt`: for setting up virtual environment (if used).
   * `metadata.csv`: Required by `interactive_function.py`.
   * `app_header_image.png`: Required by `interactive_function.py`.
-*   
+* In command prompt/terminal, navigate to the folder containing all the above files and run:
+  `streamlit run interactive_function.py`   
 
