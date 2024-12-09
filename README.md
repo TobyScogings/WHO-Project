@@ -6,6 +6,9 @@ Using the WHO Life Expectancy data, produce a function which takes in relevant p
 * Predict life expectancy using minimal data that excludes sensitive information to remove potential biases.
 * Predict life expactancy using elaborate data that could include sensitive information if the user gives consent to do so.
 
+# Dataset
+See `Life Expectancy Data.csv`.
+
 # Streamlit app
 Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/) a go!
 
