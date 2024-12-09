@@ -21,7 +21,7 @@ Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/)
 * `seaborn`.
 * `streamlit`.
 * `scikit-learn`.
-* `statsmodels`
+* `statsmodels`.
 
 
 ## Methodology
