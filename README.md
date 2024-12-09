@@ -9,7 +9,7 @@ Using the WHO Life Expectancy data, produce a function which takes in relevant p
 * The **minimalistic model** should produce an **RMSE lower than 2.3** compared to the competitor team's baseline.
 
 ## Dataset
-See `Life Expectancy Data.csv`.
+See `Life Expectancy Data.csv` and metadata info at `WHO Dataset - MetaData.ipynb`.
 
 ## Streamlit app
 Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/) a go!
