@@ -9,6 +9,7 @@ Give the [Life Expectancy Prediction app](https://supermodellers.streamlit.app/)
   * `streamlit`.
   * `scikit-learn`. 
 * Files required within same folder (e.g. "supermodellers" folder):
+  * `Life Expectancy Data.csv`: Contains training data to fit `StandardScaler` object for scaling.
   * `interactive_function.py`: Python script that makes up the Streamlit application.
   * `requirements.txt`: for setting up virtual environment (if used).
   * `metadata.csv`: Required by `interactive_function.py`.
