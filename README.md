@@ -3,7 +3,7 @@ This is the WHO project repo for team Supermodellers.
 
 ## Goal
 Using the WHO Life Expectancy data, produce a function which takes in relevant population statistics and:
-* Produce a **full model** to predict life expactancy using elaborate data (include sensitive information with user consent).
+* Produce a **full model** to predict life expectancy using elaborate data (include sensitive information with user consent).
 * The **full model** should produce an **RMSE lower than 2** compared to the competitor team's baseline.
 * Produce a **minimalistic model** to predict life expectancy using minimal data (excludes sensitive information to remove potential biases).
 * The **minimalistic model** should produce an **RMSE lower than 2.3** compared to the competitor team's baseline.
